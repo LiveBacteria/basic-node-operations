@@ -1,0 +1,125 @@
+Answer to question 1:
+
+'sort' command sorts standard by alphabetically per line.
+sorting on commands.js
+
+pooret1@CABN4724 MINGW64 ~/basic-node-operations (master)
+$ sort commands.js
+
+            break;
+            break;
+            commandLibrary.cat(userInputArray.slice(1));
+            commandLibrary.echo(userInputArray.slice(1).join(" "));
+            done(data);
+            if (err) throw err;
+        case "cat":
+        case "echo":
+        const fileName = fullPath[0];
+        done(userInput);
+        fs.readFile(fileName, (err, data) => {
+        });
+    "cat": function(fullPath) {
+    "echo": (userInput) => {
+    const command = userInputArray[0];
+    const userInputArray = userInput.split(" ");
+    process.stdout.write('\nprompt > ');
+    process.stdout.write(output);
+    switch(command) {
+    }
+    },
+    },
+const commandLibrary = {
+const fs = require('fs');
+function done(output){
+function evaluateCmd(userInput){
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+}
+};
+
+'wc' command counts each word by line, how many characters are in the word, and byte counts
+
+pooret1@CABN4724 MINGW64 ~/basic-node-operations (master)
+$ wc commands.js
+ 36  71 897 commands.js
+
+
+'uniq' command sorts each line in a given file and only returns different lines.
+
+pooret1@CABN4724 MINGW64 ~/basic-node-operations (master)
+$ uniq commands.js
+const fs = require('fs');
+
+function done(output){
+    process.stdout.write(output);
+    process.stdout.write('\nprompt > ');
+}
+
+function evaluateCmd(userInput){
+    const userInputArray = userInput.split(" ");
+    const command = userInputArray[0];
+
+    switch(command) {
+        case "echo":
+            commandLibrary.echo(userInputArray.slice(1).join(" "));
+            break;
+        case "cat":
+            commandLibrary.cat(userInputArray.slice(1));
+            break;
+    }
+}
+
+const commandLibrary = {
+    "echo": (userInput) => {
+        done(userInput);
+    },
+    "cat": function(fullPath) {
+        const fileName = fullPath[0];
+        fs.readFile(fileName, (err, data) => {
+            if (err) throw err;
+            done(data);
+        });
+    },
+
+};
+
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+
+
+Answer to question 2 is:
+
+pooret1@CABN4724 MINGW64 ~/basic-node-operations (master)
+$ sort commands.js | uniq
+
+
+            break;
+            commandLibrary.cat(userInputArray.slice(1));
+            commandLibrary.echo(userInputArray.slice(1).join(" "));
+            done(data);
+            if (err) throw err;
+        case "cat":
+        case "echo":
+        const fileName = fullPath[0];
+        done(userInput);
+        fs.readFile(fileName, (err, data) => {
+        });
+    "cat": function(fullPath) {
+    "echo": (userInput) => {
+    const command = userInputArray[0];
+    const userInputArray = userInput.split(" ");
+    process.stdout.write('\nprompt > ');
+    process.stdout.write(output);
+    switch(command) {
+    }
+    },
+const commandLibrary = {
+const fs = require('fs');
+function done(output){
+function evaluateCmd(userInput){
+module.exports.commandLibrary = commandLibrary;
+module.exports.evaluateCmd = evaluateCmd;
+}
+};
+
