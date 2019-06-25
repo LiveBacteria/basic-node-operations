@@ -123,3 +123,8 @@ module.exports.evaluateCmd = evaluateCmd;
 }
 };
 
+Answer to question 6:
+
+function reverseString(input) {
+  return input.split('').reverse().join('')
+}

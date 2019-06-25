@@ -83,10 +83,8 @@ const commandLibrary = {
             if(err){throw new Error(err);}
 
             // Parses the returned data object to a string and calls the split method on it
-            let fileToString = data.toString().split("\n");
-
             // Calls the done function with the result of the resultArray array being joined on each '\n', new line, character
-            done(resultArray.slice(-2).join("\n"));
+            done(data.toString().split("\n").slice(-2).join("\n"));
         });
     }
 };
