@@ -22,6 +22,7 @@ function evaluateCmd(userInput){
             (option != undefined) ? commandLibrary.head(userInputArray.slice(1), option) : commandLibrary.head(userInputArray.slice(1));
             break;
         case "tail":
+            commandLibrary.tail(userInputArray.slice(1));
             break;
         default:
             done( "'"+ userInput + "' is not a command. ");
@@ -40,16 +41,17 @@ const commandLibrary = {
             done(data);
         });
     },
-    "head": (fullPath, count) => {
+    "head": (fullPath) => {
 
         // Checks if count was given as a parameter otherwise it assigns it to 2
-        if(!count){let count = 2;}
+        //if(count){let count = 2;}
+        let count = 2;
 
         // Sets a constant variable fileName equal to the filename passed into the function
         const fileName = fullPath[0];
 
         // Declares an array to hold the returned data that will evenutally be join back as a string.
-        let resultArray;
+        let resultArray = [];
 
         // This callback fed function takes the returned data which is the first Nth(count) lines of the file given
         fs.readFile(fileName, (err, data) => {
@@ -61,11 +63,30 @@ const commandLibrary = {
 
             // Assigns the result array each value of file to string up to count
             for(let x = 0; x < count; x++){
-                count > 0 ? resultArray.push(fileToString[x]) : resultArray.push( "\n" + fileToString[x]);
+                count = 0 ? resultArray.push(fileToString[x]) : resultArray.push( "\n" + fileToString[x]);
             }
 
             // Calls the done function with the result of the resultArray array being joined on each '\n', new line, character
             done(resultArray.join("\n"));
+        });
+    },
+    "tail": (fullPath) => {
+
+        // Sets a constant variable fileName equal to the filename passed into the function
+        const fileName = fullPath[0];
+
+        // Declares an array to hold the returned data that will evenutally be join back as a string.
+        let resultArray = [];
+
+        // This callback fed function takes the returned data which is the first Nth(count) lines of the file given
+        fs.readFile(fileName, (err, data) => {
+            if(err){throw new Error(err);}
+
+            // Parses the returned data object to a string and calls the split method on it
+            let fileToString = data.toString().split("\n");
+
+            // Calls the done function with the result of the resultArray array being joined on each '\n', new line, character
+            done(resultArray.slice(-2).join("\n"));
         });
     }
 };
